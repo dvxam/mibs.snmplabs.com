@@ -1,15 +1,15 @@
 #
-# PySNMP MIB module A3COM-AUDL-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-AUDL-R1-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:48:47 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# PySNMP MIB module A3COM-AUDL-R1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-AUDL-R1-MIB
+# Produced by pysmi-0.3.4 at Fri Jan 31 21:29:15 2020
+# On host bier platform Linux version 5.4.0-3-amd64 by user tin
+# Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) 
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Counter64, iso, IpAddress, NotificationType, Unsigned32, Integer32, MibIdentifier, Gauge32, ObjectIdentity, TimeTicks, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Counter64", "iso", "IpAddress", "NotificationType", "Unsigned32", "Integer32", "MibIdentifier", "Gauge32", "ObjectIdentity", "TimeTicks", "Bits", "Counter32")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, ModuleIdentity, NotificationType, Gauge32, Counter32, MibIdentifier, enterprises, Unsigned32, IpAddress, TimeTicks, ObjectIdentity, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "ModuleIdentity", "NotificationType", "Gauge32", "Counter32", "MibIdentifier", "enterprises", "Unsigned32", "IpAddress", "TimeTicks", "ObjectIdentity", "iso", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
@@ -26,10 +26,10 @@ a3ComAudlControlSecurity = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 1, 4), Intege
 if mibBuilder.loadTexts: a3ComAudlControlSecurity.setStatus('mandatory')
 a3ComAudlLogServerAddr = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 1), IpAddress()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlLogServerAddr.setStatus('mandatory')
-a3ComAudlPriorityLevel = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("log-EMERG", 1), ("log-ALERT", 2), ("log-CRITICAL", 3), ("log-ERROR", 4), ("log-WARNING", 5), ("log-NOTICE", 6), ("log-INFO", 7), ("log-DEBUG", 8))).clone('log-INFO')).setMaxAccess("readwrite")
+a3ComAudlPriorityLevel = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("log_EMERG", 1), ("log_ALERT", 2), ("log_CRITICAL", 3), ("log_ERROR", 4), ("log_WARNING", 5), ("log_NOTICE", 6), ("log_INFO", 7), ("log_DEBUG", 8))).clone('log_INFO')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlPriorityLevel.setStatus('mandatory')
 a3ComAudlMaxLog = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(10)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlMaxLog.setStatus('mandatory')
 a3ComAudlIdleTime = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 480)).clone(5)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlIdleTime.setStatus('mandatory')
-mibBuilder.exportSymbols("A3COM-AUDL-r1-MIB", a3ComAudlIdleTime=a3ComAudlIdleTime, a3ComAudlConfig=a3ComAudlConfig, a3ComAudlLogServerAddr=a3ComAudlLogServerAddr, brouterMIB=brouterMIB, a3ComAudlControlMessages=a3ComAudlControlMessages, a3ComAuditLog=a3ComAuditLog, a3ComAudlControlConfig=a3ComAudlControlConfig, a3ComAudlMaxLog=a3ComAudlMaxLog, a3ComAudlPriorityLevel=a3ComAudlPriorityLevel, a3ComAudlControlSecurity=a3ComAudlControlSecurity, a3ComAudlControlAuditTrail=a3ComAudlControlAuditTrail, a3ComAudlControl=a3ComAudlControl, a3Com=a3Com)
+mibBuilder.exportSymbols("A3COM-AUDL-R1-MIB", a3ComAudlIdleTime=a3ComAudlIdleTime, a3ComAudlControl=a3ComAudlControl, a3Com=a3Com, a3ComAudlControlMessages=a3ComAudlControlMessages, a3ComAudlLogServerAddr=a3ComAudlLogServerAddr, brouterMIB=brouterMIB, a3ComAudlControlConfig=a3ComAudlControlConfig, a3ComAudlControlSecurity=a3ComAudlControlSecurity, a3ComAudlConfig=a3ComAudlConfig, a3ComAuditLog=a3ComAuditLog, a3ComAudlPriorityLevel=a3ComAudlPriorityLevel, a3ComAudlMaxLog=a3ComAudlMaxLog, a3ComAudlControlAuditTrail=a3ComAudlControlAuditTrail)

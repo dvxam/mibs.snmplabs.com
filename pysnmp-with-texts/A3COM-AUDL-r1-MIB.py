@@ -1,15 +1,15 @@
 #
-# PySNMP MIB module A3COM-AUDL-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-AUDL-R1-MIB
-# Produced by pysmi-0.3.4 at Wed May  1 11:03:33 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# PySNMP MIB module A3COM-AUDL-R1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-AUDL-R1-MIB
+# Produced by pysmi-0.3.4 at Fri Jan 31 21:32:16 2020
+# On host bier platform Linux version 5.4.0-3-amd64 by user tin
+# Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) 
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Bits, Counter64, NotificationType, MibIdentifier, ModuleIdentity, TimeTicks, ObjectIdentity, iso, Integer32, Unsigned32, IpAddress, Counter32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "Counter64", "NotificationType", "MibIdentifier", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "iso", "Integer32", "Unsigned32", "IpAddress", "Counter32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, enterprises, ObjectIdentity, iso, Unsigned32, Gauge32, TimeTicks, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, ModuleIdentity, IpAddress, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "enterprises", "ObjectIdentity", "iso", "Unsigned32", "Gauge32", "TimeTicks", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "ModuleIdentity", "IpAddress", "Counter64", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
@@ -31,7 +31,7 @@ if mibBuilder.loadTexts: a3ComAudlControlSecurity.setDescription('This parameter
 a3ComAudlLogServerAddr = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 1), IpAddress()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlLogServerAddr.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComAudlLogServerAddr.setDescription('This is the IP address of a log server which has syslog daemon active with proper syslog configuration.')
-a3ComAudlPriorityLevel = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("log-EMERG", 1), ("log-ALERT", 2), ("log-CRITICAL", 3), ("log-ERROR", 4), ("log-WARNING", 5), ("log-NOTICE", 6), ("log-INFO", 7), ("log-DEBUG", 8))).clone('log-INFO')).setMaxAccess("readwrite")
+a3ComAudlPriorityLevel = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("log_EMERG", 1), ("log_ALERT", 2), ("log_CRITICAL", 3), ("log_ERROR", 4), ("log_WARNING", 5), ("log_NOTICE", 6), ("log_INFO", 7), ("log_DEBUG", 8))).clone('log_INFO')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlPriorityLevel.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComAudlPriorityLevel.setDescription('The level is used with facility to format a priority which used as a tag in log message before sending it to syslog daemon. It also controls the log sending operation, a log message with higher Level will be be sent together with what has been in Audit Log buffer, to a LogServerAddr immediately.')
 a3ComAudlMaxLog = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(10)).setMaxAccess("readwrite")
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: a3ComAudlMaxLog.setDescription('It decides the maximum 
 a3ComAudlIdleTime = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 480)).clone(5)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComAudlIdleTime.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComAudlIdleTime.setDescription('This controls the idle time in minute till sending Audit log buffer if it has data. Value of 0 means this idle time is disabled.')
-mibBuilder.exportSymbols("A3COM-AUDL-r1-MIB", a3ComAuditLog=a3ComAuditLog, a3ComAudlControl=a3ComAudlControl, a3ComAudlControlSecurity=a3ComAudlControlSecurity, a3ComAudlControlAuditTrail=a3ComAudlControlAuditTrail, brouterMIB=brouterMIB, a3ComAudlLogServerAddr=a3ComAudlLogServerAddr, a3ComAudlMaxLog=a3ComAudlMaxLog, a3Com=a3Com, a3ComAudlControlConfig=a3ComAudlControlConfig, a3ComAudlConfig=a3ComAudlConfig, a3ComAudlPriorityLevel=a3ComAudlPriorityLevel, a3ComAudlIdleTime=a3ComAudlIdleTime, a3ComAudlControlMessages=a3ComAudlControlMessages)
+mibBuilder.exportSymbols("A3COM-AUDL-R1-MIB", a3ComAudlControlConfig=a3ComAudlControlConfig, a3ComAudlPriorityLevel=a3ComAudlPriorityLevel, a3ComAudlControl=a3ComAudlControl, a3ComAudlMaxLog=a3ComAudlMaxLog, a3ComAudlLogServerAddr=a3ComAudlLogServerAddr, a3ComAudlControlAuditTrail=a3ComAudlControlAuditTrail, a3ComAudlIdleTime=a3ComAudlIdleTime, a3ComAudlControlSecurity=a3ComAudlControlSecurity, a3ComAuditLog=a3ComAuditLog, a3ComAudlControlMessages=a3ComAudlControlMessages, a3Com=a3Com, a3ComAudlConfig=a3ComAudlConfig, brouterMIB=brouterMIB)

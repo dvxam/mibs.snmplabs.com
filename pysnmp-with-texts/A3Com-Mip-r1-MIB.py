@@ -1,15 +1,15 @@
 #
-# PySNMP MIB module A3Com-Mip-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-MIP-R1-MIB
-# Produced by pysmi-0.3.4 at Wed May  1 11:08:08 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# PySNMP MIB module A3COM-MIP-R1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-MIP-R1-MIB
+# Produced by pysmi-0.3.4 at Fri Jan 31 21:32:24 2020
+# On host bier platform Linux version 5.4.0-3-amd64 by user tin
+# Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) 
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, NotificationType, MibIdentifier, enterprises, TimeTicks, Integer32, ObjectIdentity, ModuleIdentity, Bits, Counter64, iso, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "NotificationType", "MibIdentifier", "enterprises", "TimeTicks", "Integer32", "ObjectIdentity", "ModuleIdentity", "Bits", "Counter64", "iso", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Counter32, iso, Unsigned32, enterprises, Counter64, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, IpAddress, Gauge32, ModuleIdentity, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "iso", "Unsigned32", "enterprises", "Counter64", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "IpAddress", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
@@ -27,7 +27,7 @@ if mibBuilder.loadTexts: a3ComMipControl.setDescription('If this object is set t
 a3ComMipPortTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1), )
 if mibBuilder.loadTexts: a3ComMipPortTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipPortTable.setDescription('This table contains entries of parameters associated with every port or tunnel.')
-a3ComMipPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1), ).setIndexNames((0, "A3Com-Mip-r1-MIB", "a3ComMipPortIndex"))
+a3ComMipPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1), ).setIndexNames((0, "A3COM-MIP-R1-MIB", "a3ComMipPortIndex"))
 if mibBuilder.loadTexts: a3ComMipPortEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipPortEntry.setDescription('Each entry contains information for a spcified port or tunnel.')
 a3ComMipPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
@@ -48,7 +48,7 @@ if mibBuilder.loadTexts: a3ComMipPortPaceMode.setDescription('This object is use
 a3ComMipLocalGroupTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2), )
 if mibBuilder.loadTexts: a3ComMipLocalGroupTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipLocalGroupTable.setDescription('This table contains group membership information of each attached subnet.')
-a3ComMipLocalGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1), ).setIndexNames((0, "A3Com-Mip-r1-MIB", "a3ComMipLocalGroupPort"), (0, "A3Com-Mip-r1-MIB", "a3ComMipLocalGroupIpAddr"))
+a3ComMipLocalGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1), ).setIndexNames((0, "A3COM-MIP-R1-MIB", "a3ComMipLocalGroupPort"), (0, "A3COM-MIP-R1-MIB", "a3ComMipLocalGroupIpAddr"))
 if mibBuilder.loadTexts: a3ComMipLocalGroupEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipLocalGroupEntry.setDescription('Each entry contains a group membership information associated with a specific port.')
 a3ComMipLocalGroupPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
@@ -66,7 +66,7 @@ if mibBuilder.loadTexts: a3ComMipLocalGroupStatus.setDescription('This object is
 a3ComMipSmdsGroupTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3), )
 if mibBuilder.loadTexts: a3ComMipSmdsGroupTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipSmdsGroupTable.setDescription('This table contains a set of IP network address and SMDS group address mapping.')
-a3ComMipSmdsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1), ).setIndexNames((0, "A3Com-Mip-r1-MIB", "a3ComMipSmdsGroupIpAddr"))
+a3ComMipSmdsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1), ).setIndexNames((0, "A3COM-MIP-R1-MIB", "a3ComMipSmdsGroupIpAddr"))
 if mibBuilder.loadTexts: a3ComMipSmdsGroupEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipSmdsGroupEntry.setDescription('Each entry contains an IP network address to SMDS group address mapping.')
 a3ComMipSmdsGroupIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
@@ -78,4 +78,4 @@ if mibBuilder.loadTexts: a3ComMipSmdsGroupMediaAddr.setDescription('This is the 
 a3ComMipSmdsGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3ComMipSmdsGroupStatus.setStatus('mandatory')
 if mibBuilder.loadTexts: a3ComMipSmdsGroupStatus.setDescription('This object is used to add and delete entries in this table. See the definition of RowStatus for detail.')
-mibBuilder.exportSymbols("A3Com-Mip-r1-MIB", a3ComMipCConfig=a3ComMipCConfig, a3ComMipLocalGroupTable=a3ComMipLocalGroupTable, a3ComMipPortQueryInterval=a3ComMipPortQueryInterval, a3Com=a3Com, a3ComMIP=a3ComMIP, a3ComMipPortEntry=a3ComMipPortEntry, a3ComMipSmdsGroupStatus=a3ComMipSmdsGroupStatus, a3ComMipSmdsGroupEntry=a3ComMipSmdsGroupEntry, a3ComMipControl=a3ComMipControl, a3ComMipLocalGroupIpAddr=a3ComMipLocalGroupIpAddr, a3ComMipLocalGroupStatus=a3ComMipLocalGroupStatus, a3ComMipLocalGroupPort=a3ComMipLocalGroupPort, a3ComMipSConfig=a3ComMipSConfig, a3ComMipSmdsGroupTable=a3ComMipSmdsGroupTable, a3ComMipData=a3ComMipData, RowStatus=RowStatus, a3ComMipSmdsGroupIpAddr=a3ComMipSmdsGroupIpAddr, a3ComMipSmdsGroupMediaAddr=a3ComMipSmdsGroupMediaAddr, a3ComMipPortTable=a3ComMipPortTable, a3ComMipPortThreshold=a3ComMipPortThreshold, a3ComMipPortPaceMode=a3ComMipPortPaceMode, a3ComMipPortQuerier=a3ComMipPortQuerier, a3ComMipPortIndex=a3ComMipPortIndex, brouterMIB=brouterMIB, a3ComMipLocalGroupType=a3ComMipLocalGroupType, a3ComMipLocalGroupEntry=a3ComMipLocalGroupEntry)
+mibBuilder.exportSymbols("A3COM-MIP-R1-MIB", a3ComMipPortTable=a3ComMipPortTable, a3ComMipCConfig=a3ComMipCConfig, a3ComMipSmdsGroupMediaAddr=a3ComMipSmdsGroupMediaAddr, a3ComMipPortIndex=a3ComMipPortIndex, a3ComMipLocalGroupStatus=a3ComMipLocalGroupStatus, a3ComMipSmdsGroupEntry=a3ComMipSmdsGroupEntry, RowStatus=RowStatus, a3ComMipSConfig=a3ComMipSConfig, a3ComMipLocalGroupEntry=a3ComMipLocalGroupEntry, a3ComMipLocalGroupTable=a3ComMipLocalGroupTable, a3ComMipPortQuerier=a3ComMipPortQuerier, a3ComMIP=a3ComMIP, a3ComMipLocalGroupType=a3ComMipLocalGroupType, a3ComMipPortThreshold=a3ComMipPortThreshold, brouterMIB=brouterMIB, a3ComMipSmdsGroupTable=a3ComMipSmdsGroupTable, a3ComMipLocalGroupIpAddr=a3ComMipLocalGroupIpAddr, a3ComMipPortQueryInterval=a3ComMipPortQueryInterval, a3Com=a3Com, a3ComMipSmdsGroupStatus=a3ComMipSmdsGroupStatus, a3ComMipControl=a3ComMipControl, a3ComMipPortEntry=a3ComMipPortEntry, a3ComMipLocalGroupPort=a3ComMipLocalGroupPort, a3ComMipPortPaceMode=a3ComMipPortPaceMode, a3ComMipSmdsGroupIpAddr=a3ComMipSmdsGroupIpAddr, a3ComMipData=a3ComMipData)

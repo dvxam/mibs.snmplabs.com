@@ -1,16 +1,16 @@
 #
-# PySNMP MIB module A3Com-IPSO-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-IPSO-R1-MIB
-# Produced by pysmi-0.3.4 at Mon Apr 29 16:53:16 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# PySNMP MIB module A3COM-IPSO-R1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-IPSO-R1-MIB
+# Produced by pysmi-0.3.4 at Fri Jan 31 21:29:20 2020
+# On host bier platform Linux version 5.4.0-3-amd64 by user tin
+# Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) 
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, NotificationType, Unsigned32, MibIdentifier, Counter32, Integer32, IpAddress, ModuleIdentity, iso, enterprises, TimeTicks, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "NotificationType", "Unsigned32", "MibIdentifier", "Counter32", "Integer32", "IpAddress", "ModuleIdentity", "iso", "enterprises", "TimeTicks", "Counter64", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Gauge32, ModuleIdentity, Unsigned32, Bits, iso, Counter32, IpAddress, MibIdentifier, Counter64, NotificationType, Integer32, enterprises, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "Unsigned32", "Bits", "iso", "Counter32", "IpAddress", "MibIdentifier", "Counter64", "NotificationType", "Integer32", "enterprises", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
 a3ComIPSO = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 12))
@@ -24,7 +24,7 @@ a3IPsecureFileServer = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 12, 2), Integer32().s
 if mibBuilder.loadTexts: a3IPsecureFileServer.setStatus('mandatory')
 a3IPsecureParamTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 12, 3), )
 if mibBuilder.loadTexts: a3IPsecureParamTable.setStatus('mandatory')
-a3IPsecureParamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 12, 3, 1), ).setIndexNames((0, "A3Com-IPSO-r1-MIB", "a3IPsecureParamPortIndex"))
+a3IPsecureParamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 12, 3, 1), ).setIndexNames((0, "A3COM-IPSO-R1-MIB", "a3IPsecureParamPortIndex"))
 if mibBuilder.loadTexts: a3IPsecureParamEntry.setStatus('mandatory')
 a3IPsecureParamPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 3, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: a3IPsecureParamPortIndex.setStatus('mandatory')
@@ -44,7 +44,7 @@ a3IPsecureMaxLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 3, 1, 8), Inte
 if mibBuilder.loadTexts: a3IPsecureMaxLevel.setStatus('mandatory')
 a3IPsecureAuthInTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 12, 4), )
 if mibBuilder.loadTexts: a3IPsecureAuthInTable.setStatus('mandatory')
-a3IPsecureAuthInEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 12, 4, 1), ).setIndexNames((0, "A3Com-IPSO-r1-MIB", "a3IPsecureAuthInPort"), (0, "A3Com-IPSO-r1-MIB", "a3IPsecureAuthInFlags"))
+a3IPsecureAuthInEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 12, 4, 1), ).setIndexNames((0, "A3COM-IPSO-R1-MIB", "a3IPsecureAuthInPort"), (0, "A3COM-IPSO-R1-MIB", "a3IPsecureAuthInFlags"))
 if mibBuilder.loadTexts: a3IPsecureAuthInEntry.setStatus('mandatory')
 a3IPsecureAuthInPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 4, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: a3IPsecureAuthInPort.setStatus('mandatory')
@@ -56,7 +56,7 @@ a3IPsecureAuthInStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 4, 1, 4), 
 if mibBuilder.loadTexts: a3IPsecureAuthInStatus.setStatus('mandatory')
 a3IPsecureAuthOutTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 12, 5), )
 if mibBuilder.loadTexts: a3IPsecureAuthOutTable.setStatus('mandatory')
-a3IPsecureAuthOutEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1), ).setIndexNames((0, "A3Com-IPSO-r1-MIB", "a3IPsecureAuthOutPort"), (0, "A3Com-IPSO-r1-MIB", "a3IPsecureAuthOutFlags"))
+a3IPsecureAuthOutEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1), ).setIndexNames((0, "A3COM-IPSO-R1-MIB", "a3IPsecureAuthOutPort"), (0, "A3COM-IPSO-R1-MIB", "a3IPsecureAuthOutFlags"))
 if mibBuilder.loadTexts: a3IPsecureAuthOutEntry.setStatus('mandatory')
 a3IPsecureAuthOutPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: a3IPsecureAuthOutPort.setStatus('mandatory')
@@ -66,4 +66,4 @@ a3IPsecureAuthOutMatch = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1, 3), 
 if mibBuilder.loadTexts: a3IPsecureAuthOutMatch.setStatus('mandatory')
 a3IPsecureAuthOutStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 12, 5, 1, 4), RowStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3IPsecureAuthOutStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("A3Com-IPSO-r1-MIB", a3IPsecureParamCtl=a3IPsecureParamCtl, a3IPsecureParamPortIndex=a3IPsecureParamPortIndex, a3IPsecureAuthInTable=a3IPsecureAuthInTable, a3IPsecureAuthInPort=a3IPsecureAuthInPort, a3IPsecureLabelDefaultAuth=a3IPsecureLabelDefaultAuth, a3IPsecureAuthInStatus=a3IPsecureAuthInStatus, RowStatus=RowStatus, a3IPsecureParamEntry=a3IPsecureParamEntry, brouterMIB=brouterMIB, a3IPsecureLabelDefaultLevel=a3IPsecureLabelDefaultLevel, a3Com=a3Com, a3IPsecureAuthOutStatus=a3IPsecureAuthOutStatus, a3IPsecureAuthOutTable=a3IPsecureAuthOutTable, a3IPsecureMinLevel=a3IPsecureMinLevel, a3IPsecureAuthInMatch=a3IPsecureAuthInMatch, a3IPsecureLabelSysAuth=a3IPsecureLabelSysAuth, a3IPsecureCtl=a3IPsecureCtl, a3IPsecureAuthInEntry=a3IPsecureAuthInEntry, a3IPsecureMaxLevel=a3IPsecureMaxLevel, a3IPsecureFileServer=a3IPsecureFileServer, a3IPsecureAuthInFlags=a3IPsecureAuthInFlags, a3IPsecureLabelSysLevel=a3IPsecureLabelSysLevel, a3IPsecureAuthOutPort=a3IPsecureAuthOutPort, a3ComIPSO=a3ComIPSO, a3IPsecureAuthOutEntry=a3IPsecureAuthOutEntry, a3IPsecureAuthOutFlags=a3IPsecureAuthOutFlags, a3IPsecureAuthOutMatch=a3IPsecureAuthOutMatch, a3IPsecureParamTable=a3IPsecureParamTable)
+mibBuilder.exportSymbols("A3COM-IPSO-R1-MIB", a3IPsecureParamTable=a3IPsecureParamTable, a3IPsecureCtl=a3IPsecureCtl, a3IPsecureAuthInMatch=a3IPsecureAuthInMatch, a3IPsecureAuthInStatus=a3IPsecureAuthInStatus, a3IPsecureLabelDefaultLevel=a3IPsecureLabelDefaultLevel, a3IPsecureLabelDefaultAuth=a3IPsecureLabelDefaultAuth, RowStatus=RowStatus, a3IPsecureAuthOutTable=a3IPsecureAuthOutTable, a3IPsecureMaxLevel=a3IPsecureMaxLevel, a3IPsecureAuthInEntry=a3IPsecureAuthInEntry, a3IPsecureAuthOutFlags=a3IPsecureAuthOutFlags, a3IPsecureAuthOutPort=a3IPsecureAuthOutPort, a3IPsecureAuthOutEntry=a3IPsecureAuthOutEntry, a3IPsecureAuthOutMatch=a3IPsecureAuthOutMatch, brouterMIB=brouterMIB, a3IPsecureLabelSysLevel=a3IPsecureLabelSysLevel, a3ComIPSO=a3ComIPSO, a3IPsecureParamEntry=a3IPsecureParamEntry, a3IPsecureAuthInFlags=a3IPsecureAuthInFlags, a3Com=a3Com, a3IPsecureFileServer=a3IPsecureFileServer, a3IPsecureAuthInTable=a3IPsecureAuthInTable, a3IPsecureAuthOutStatus=a3IPsecureAuthOutStatus, a3IPsecureAuthInPort=a3IPsecureAuthInPort, a3IPsecureParamCtl=a3IPsecureParamCtl, a3IPsecureLabelSysAuth=a3IPsecureLabelSysAuth, a3IPsecureMinLevel=a3IPsecureMinLevel, a3IPsecureParamPortIndex=a3IPsecureParamPortIndex)

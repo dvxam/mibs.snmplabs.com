@@ -1,17 +1,17 @@
 #
-# PySNMP MIB module A3Com-Filter-r5-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/davwang4/Dev/mibs.snmplabs.com/asn1/A3COM-FILTER-R5-MIB
-# Produced by pysmi-0.3.4 at Wed May  1 11:03:39 2019
-# On host DAVWANG4-M-1475 platform Darwin version 18.5.0 by user davwang4
-# Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) 
+# PySNMP MIB module A3COM-FILTER-R5-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-FILTER-R5-MIB
+# Produced by pysmi-0.3.4 at Fri Jan 31 21:32:20 2020
+# On host bier platform Linux version 5.4.0-3-amd64 by user tin
+# Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) 
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 MacAddress, = mibBuilder.importSymbols("RFC1286-MIB", "MacAddress")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, NotificationType, Unsigned32, iso, Integer32, Counter32, Gauge32, Counter64, IpAddress, MibIdentifier, TimeTicks, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "Unsigned32", "iso", "Integer32", "Counter32", "Gauge32", "Counter64", "IpAddress", "MibIdentifier", "TimeTicks", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleIdentity, ObjectIdentity, Unsigned32, iso, MibIdentifier, enterprises, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, Counter64, IpAddress, Counter32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "iso", "MibIdentifier", "enterprises", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "Counter64", "IpAddress", "Counter32", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
 brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
 a3ComFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 10))
@@ -44,7 +44,7 @@ if mibBuilder.loadTexts: a3filterDecSelect.setDescription('This object determine
 a3filterUserMaskTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 10, 2), )
 if mibBuilder.loadTexts: a3filterUserMaskTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterUserMaskTable.setDescription('A table containing User configured Masks that are used to identify specific classes of packets. These masks are used by the policy table to define actions to take on these classes of packets.')
-a3filterUserMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 2, 1), ).setIndexNames((0, "A3Com-Filter-r5-MIB", "a3filterUserMaskIndex"))
+a3filterUserMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 2, 1), ).setIndexNames((0, "A3COM-FILTER-R5-MIB", "a3filterUserMaskIndex"))
 if mibBuilder.loadTexts: a3filterUserMaskEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterUserMaskEntry.setDescription('The definition of a single Mask.')
 a3filterUserMaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 10, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
@@ -92,7 +92,7 @@ if mibBuilder.loadTexts: a3filterUserMaskStatus.setDescription('This object is u
 a3filterBuiltInMaskTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 10, 3), )
 if mibBuilder.loadTexts: a3filterBuiltInMaskTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterBuiltInMaskTable.setDescription('A table containing Built In Masks that are used to identify specific classes of packets. These masks may be used by the policy table to define actions to take on these classes of packets.')
-a3filterBuiltInMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 3, 1), ).setIndexNames((0, "A3Com-Filter-r5-MIB", "a3filterBuiltInMaskIndex"))
+a3filterBuiltInMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 3, 1), ).setIndexNames((0, "A3COM-FILTER-R5-MIB", "a3filterBuiltInMaskIndex"))
 if mibBuilder.loadTexts: a3filterBuiltInMaskEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterBuiltInMaskEntry.setDescription('The definition of a single Built In Mask.')
 a3filterBuiltInMaskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 10, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(257, 65535))).setMaxAccess("readonly")
@@ -107,7 +107,7 @@ if mibBuilder.loadTexts: a3filterBuiltInMaskFieldValue.setDescription('This obje
 a3filterUserGrpTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 10, 4), )
 if mibBuilder.loadTexts: a3filterUserGrpTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterUserGrpTable.setDescription('A table containing User Group entries. Each entry identifies a set of entries in the a3filterUserGrpAddrTable which can contain several station Addresses. These addresses are physical layer addresses. This table is used to associate a single User Group index with a name.')
-a3filterUserGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 4, 1), ).setIndexNames((0, "A3Com-Filter-r5-MIB", "a3filterUserGrpIndex"))
+a3filterUserGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 4, 1), ).setIndexNames((0, "A3COM-FILTER-R5-MIB", "a3filterUserGrpIndex"))
 if mibBuilder.loadTexts: a3filterUserGrpEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterUserGrpEntry.setDescription('Each entry in this table identifies a group of station addresses.')
 a3filterUserGrpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 10, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
@@ -122,7 +122,7 @@ if mibBuilder.loadTexts: a3filterUserGrpStatus.setDescription('This object is us
 a3filterUserGrpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 10, 5), )
 if mibBuilder.loadTexts: a3filterUserGrpAddrTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterUserGrpAddrTable.setDescription('A table containing User Group addresses. Each entry can contain several station Addresses. These addresses are physical layer addresses. Note, this table applies only to filtering based on the Data Link layer. Since only bridged packets are filtered at this layer, this table only applies to bridged traffic.')
-a3filterUserGrpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 5, 1), ).setIndexNames((0, "A3Com-Filter-r5-MIB", "a3filterUserGrpAddrIndex"), (0, "A3Com-Filter-r5-MIB", "a3filterUserGrpAddress"))
+a3filterUserGrpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 5, 1), ).setIndexNames((0, "A3COM-FILTER-R5-MIB", "a3filterUserGrpAddrIndex"), (0, "A3COM-FILTER-R5-MIB", "a3filterUserGrpAddress"))
 if mibBuilder.loadTexts: a3filterUserGrpAddrEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterUserGrpAddrEntry.setDescription('Each entry in this table identifies a single station address.')
 a3filterUserGrpAddrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 10, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
@@ -137,7 +137,7 @@ if mibBuilder.loadTexts: a3filterUserGrpAddrStatus.setDescription('This object i
 a3filterPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 10, 6), )
 if mibBuilder.loadTexts: a3filterPolicyTable.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterPolicyTable.setDescription('A table containing filtering Policy. Each Policy applies a set of selection criteria (Masks) to a context (in terms of ports or station groups) and associates an action with that application.')
-a3filterPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 6, 1), ).setIndexNames((0, "A3Com-Filter-r5-MIB", "a3filterPolicyIndex"))
+a3filterPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 10, 6, 1), ).setIndexNames((0, "A3COM-FILTER-R5-MIB", "a3filterPolicyIndex"))
 if mibBuilder.loadTexts: a3filterPolicyEntry.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterPolicyEntry.setDescription('The definition of a single Policy.')
 a3filterPolicyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 10, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
@@ -182,4 +182,4 @@ if mibBuilder.loadTexts: a3filterPolicyStatus.setDescription('This object is use
 a3filterPolicyX25ProfId = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 10, 6, 1, 14), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: a3filterPolicyX25ProfId.setStatus('mandatory')
 if mibBuilder.loadTexts: a3filterPolicyX25ProfId.setDescription('The index used to identify the X25 Profile ID if a3filterPolicyAction is set to X25ProfId.')
-mibBuilder.exportSymbols("A3Com-Filter-r5-MIB", a3filterUserMaskLocType=a3filterUserMaskLocType, a3filterUserGrpTable=a3filterUserGrpTable, a3filterUserGrpIndex=a3filterUserGrpIndex, a3ComFilter=a3ComFilter, a3filterUserGrpAddress=a3filterUserGrpAddress, a3filterPolicyPorts2=a3filterPolicyPorts2, a3filterUserMaskComparison=a3filterUserMaskComparison, brouterMIB=brouterMIB, a3filterUserGrpAddrStatus=a3filterUserGrpAddrStatus, a3filterUserMaskLocField=a3filterUserMaskLocField, a3filterIpxSelect=a3filterIpxSelect, a3filterUserMaskEntry=a3filterUserMaskEntry, RowStatus=RowStatus, a3filterUserMaskLocLength=a3filterUserMaskLocLength, a3filterPolicyBytes=a3filterPolicyBytes, a3filterUserMaskName=a3filterUserMaskName, a3filterPolicyMask2=a3filterPolicyMask2, a3filterAppleTalkSelect=a3filterAppleTalkSelect, a3filterPolicyMask1=a3filterPolicyMask1, a3filterPolicyPackets=a3filterPolicyPackets, a3filterPolicyContext=a3filterPolicyContext, a3filterControl=a3filterControl, a3filterUserMaskMatchValue1=a3filterUserMaskMatchValue1, a3Com=a3Com, a3filterUserMaskMatchBits=a3filterUserMaskMatchBits, a3filterUserMaskIndex=a3filterUserMaskIndex, a3filterUserGrpAddrIndex=a3filterUserGrpAddrIndex, a3filterIpSelect=a3filterIpSelect, a3filterUserMaskOperand=a3filterUserMaskOperand, a3filterBuiltInMaskName=a3filterBuiltInMaskName, a3filterUserGrpName=a3filterUserGrpName, a3filterPolicyMask4=a3filterPolicyMask4, a3filterUserMaskLocOffset=a3filterUserMaskLocOffset, a3filterUserMaskMatchType=a3filterUserMaskMatchType, a3filterUserGrpAddrEntry=a3filterUserGrpAddrEntry, a3filterUserGrpAddrTable=a3filterUserGrpAddrTable, a3filterBuiltInMaskFieldValue=a3filterBuiltInMaskFieldValue, a3filterPolicyEntry=a3filterPolicyEntry, a3filterBuiltInMaskEntry=a3filterBuiltInMaskEntry, a3filterUserMaskTable=a3filterUserMaskTable, a3filterBridgeSelect=a3filterBridgeSelect, a3filterUserMaskOperator=a3filterUserMaskOperator, a3filterPolicyStatus=a3filterPolicyStatus, a3ComFilterCtl=a3ComFilterCtl, a3filterPolicyIndex=a3filterPolicyIndex, a3filterUserGrpEntry=a3filterUserGrpEntry, a3filterUserGrpStatus=a3filterUserGrpStatus, a3filterDefaultAction=a3filterDefaultAction, a3filterPolicyPorts1=a3filterPolicyPorts1, a3filterUserMaskStatus=a3filterUserMaskStatus, a3filterBuiltInMaskIndex=a3filterBuiltInMaskIndex, a3filterPolicyTable=a3filterPolicyTable, a3filterDecSelect=a3filterDecSelect, a3filterPolicyName=a3filterPolicyName, a3filterPolicyAction=a3filterPolicyAction, a3filterPolicyX25ProfId=a3filterPolicyX25ProfId, a3filterBuiltInMaskTable=a3filterBuiltInMaskTable, a3filterPolicyMask3=a3filterPolicyMask3, a3filterUserMaskMatchValue2=a3filterUserMaskMatchValue2)
+mibBuilder.exportSymbols("A3COM-FILTER-R5-MIB", a3filterUserMaskOperand=a3filterUserMaskOperand, a3filterUserMaskName=a3filterUserMaskName, a3filterUserGrpIndex=a3filterUserGrpIndex, a3filterUserMaskMatchValue1=a3filterUserMaskMatchValue1, a3filterPolicyMask1=a3filterPolicyMask1, a3filterIpxSelect=a3filterIpxSelect, a3filterPolicyStatus=a3filterPolicyStatus, a3filterBuiltInMaskIndex=a3filterBuiltInMaskIndex, a3filterDefaultAction=a3filterDefaultAction, a3filterIpSelect=a3filterIpSelect, a3filterUserGrpTable=a3filterUserGrpTable, a3filterUserMaskComparison=a3filterUserMaskComparison, a3filterBuiltInMaskEntry=a3filterBuiltInMaskEntry, a3filterPolicyX25ProfId=a3filterPolicyX25ProfId, a3filterPolicyPorts1=a3filterPolicyPorts1, a3filterUserGrpAddress=a3filterUserGrpAddress, a3filterUserMaskOperator=a3filterUserMaskOperator, a3filterPolicyMask2=a3filterPolicyMask2, a3filterBridgeSelect=a3filterBridgeSelect, a3filterUserGrpAddrIndex=a3filterUserGrpAddrIndex, a3filterUserMaskLocLength=a3filterUserMaskLocLength, a3filterAppleTalkSelect=a3filterAppleTalkSelect, a3filterUserGrpEntry=a3filterUserGrpEntry, a3filterUserMaskEntry=a3filterUserMaskEntry, a3ComFilter=a3ComFilter, a3filterUserMaskLocType=a3filterUserMaskLocType, a3filterUserMaskMatchType=a3filterUserMaskMatchType, a3filterBuiltInMaskName=a3filterBuiltInMaskName, a3filterUserGrpAddrEntry=a3filterUserGrpAddrEntry, RowStatus=RowStatus, a3filterPolicyEntry=a3filterPolicyEntry, a3filterUserMaskMatchValue2=a3filterUserMaskMatchValue2, a3filterUserMaskMatchBits=a3filterUserMaskMatchBits, a3filterBuiltInMaskFieldValue=a3filterBuiltInMaskFieldValue, a3filterUserGrpAddrTable=a3filterUserGrpAddrTable, a3filterPolicyName=a3filterPolicyName, a3filterUserMaskStatus=a3filterUserMaskStatus, a3filterUserGrpStatus=a3filterUserGrpStatus, a3filterUserGrpAddrStatus=a3filterUserGrpAddrStatus, a3filterPolicyContext=a3filterPolicyContext, a3filterPolicyPorts2=a3filterPolicyPorts2, a3filterBuiltInMaskTable=a3filterBuiltInMaskTable, a3filterUserMaskIndex=a3filterUserMaskIndex, a3filterUserGrpName=a3filterUserGrpName, a3filterPolicyMask4=a3filterPolicyMask4, a3filterPolicyAction=a3filterPolicyAction, a3filterPolicyBytes=a3filterPolicyBytes, a3filterUserMaskLocField=a3filterUserMaskLocField, a3filterUserMaskLocOffset=a3filterUserMaskLocOffset, a3filterPolicyPackets=a3filterPolicyPackets, a3ComFilterCtl=a3ComFilterCtl, a3filterPolicyMask3=a3filterPolicyMask3, a3filterUserMaskTable=a3filterUserMaskTable, a3Com=a3Com, brouterMIB=brouterMIB, a3filterPolicyTable=a3filterPolicyTable, a3filterControl=a3filterControl, a3filterPolicyIndex=a3filterPolicyIndex, a3filterDecSelect=a3filterDecSelect)
